@@ -117,10 +117,7 @@ def epsilon_delta_check(func, a, limit_value, epsilon):
         delta *= 0.5
 
 
-def plot_function_with_epsilon_delta(func, a, limit_value, epsilon):
-    # Dynamically determining delta for the given epsilon
-    delta = epsilon_delta_check(func, a, limit_value, epsilon)
-
+def plot_function_with_epsilon_delta(func, a, limit_value, epsilon, delta):
     x = np.linspace(a - 3 * delta, a + 3 * delta, 400)
     y = [func(val) for val in x]
 
