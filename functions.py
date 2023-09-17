@@ -123,14 +123,14 @@ def plot_function_with_epsilon_delta(func, a, limit_value, epsilon, delta):
 
     fig, ax = plt.subplots(figsize=(8, 6))
 
-    # Plotting the main function with pastel blue
-    ax.plot(x, y, label=f'{func.__name__}(x)', color="#A2D2FF")
+    # Plotting the main function with bright green
+    ax.plot(x, y, label=f'{func.__name__}(x)', color="#00FF00")
 
-    # Highlighting the epsilon region with pastel purple
-    ax.fill_between(x, limit_value - epsilon, limit_value + epsilon, color="#D6A2E8", alpha=0.5)
+    # Highlighting the epsilon region with bright orange
+    ax.fill_between(x, limit_value - epsilon, limit_value + epsilon, color="#FFA500", alpha=0.5)
 
-    # Highlighting the delta region with pastel green
-    ax.axvspan(a - delta, a + delta, color="#BDE297", alpha=0.5)
+    # Highlighting the delta region with bright purple
+    ax.axvspan(a - delta, a + delta, color="#800080", alpha=0.5)
 
     ax.set_title(f"Epsilon-Delta plot for {func.__name__}(x)")
     ax.set_xlabel('x')
