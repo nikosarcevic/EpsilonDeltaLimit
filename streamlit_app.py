@@ -77,4 +77,4 @@ elif selected_page == "About":
     It helps to understand how changing the values of epsilon impacts the needed delta for a given function at a specific point.
     """)
 
-    st.write("App made by Niko Sarcevic [GitHub](https://github.com/nikosarcevic) upon request by Steve McCormick.")
+    st.write("App made by Niko Sarcevic [GitHub](https://github.com/nikosarcevic) upon request by Steve McCormick https://www.quasilocal.com.")
