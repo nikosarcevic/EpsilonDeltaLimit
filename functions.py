@@ -117,24 +117,29 @@ def epsilon_delta_check(func, a, limit_value, epsilon):
         delta *= 0.5
 
 
-def plot_epsilon_delta(func_name, func, point_of_interest, limit_value, epsilon, delta):
-    fig, ax = plt.subplots()
+def plot_function_with_epsilon_delta(func, a, limit_value, epsilon, delta):
+    x = np.linspace(a - 3 * delta, a + 3 * delta, 400)
+    y = [func(val) for val in x]
 
-    # Define a range for x, centered around the point of interest
-    x = np.linspace(point_of_interest - 3, point_of_interest + 3, 400)
-    y = [func(xi) for xi in x]
+    fig, ax = plt.subplots(figsize=(8, 6))
 
-    # Plot the function
-    ax.plot(x, y, label=f'f(x)={func_name}')
+    # Plotting the main function with pastel blue
+    ax.plot(x, y, label=f'{func.__name__}(x)', color="#A2D2FF")
 
-    # Draw epsilon range around L
-    ax.axhspan(limit_value - epsilon, limit_value + epsilon, color='yellow', alpha=0.5)
+    # Highlighting the epsilon region with pastel purple
+    ax.fill_between(x, limit_value - epsilon, limit_value + epsilon, color="#D6A2E8", alpha=0.5)
 
-    # Draw delta range around x_0
-    ax.axvspan(point_of_interest - delta, point_of_interest + delta, color='green', alpha=0.5)
+    # Highlighting the delta region with pastel green
+    ax.axvspan(a - delta, a + delta, color="#BDE297", alpha=0.5)
 
-    ax.set_title(f'Visualization for f(x)={func_name}')
+    ax.set_title(f"Epsilon-Delta plot for {func.__name__}(x)")
+    ax.set_xlabel('x')
+    ax.set_ylabel(f'{func.__name__}(x)')
+    ax.grid(True)
+    ax.axhline(0, color='black', linewidth=0.5)
+    ax.axvline(0, color='black', linewidth=0.5)
     ax.legend()
+    fig.tight_layout()
 
     return fig
 
