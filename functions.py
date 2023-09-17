@@ -129,8 +129,8 @@ def plot_function_with_epsilon_delta(func, a, limit_value, epsilon, delta):
     # Highlighting the epsilon region with bright orange
     ax.fill_between(x, limit_value - epsilon, limit_value + epsilon, color="#FFC300", alpha=0.6)
 
-    # Highlighting the delta region with bright green
-    ax.axvspan(a - delta, a + delta, color="#DAF7A6", alpha=0.6)
+    # Highlighting the delta region with pastel blue
+    ax.axvspan(a - delta, a + delta, color="#A7C7E7", alpha=0.6)
 
     ax.set_title(f"Epsilon-Delta plot for {func.__name__}(x)")
     ax.set_xlabel('x')
