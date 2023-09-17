@@ -26,21 +26,21 @@ def exponential(x):
 def reciprocal(x):
     """Returns 1/x. Not continuous at x=0."""
     if x == 0:
-        raise ValueError("Function not defined at x=0.")
+        return float('nan')
     return 1 / x
 
 
 def square_root(x):
     """Returns the square root of x. Not continuous for x<0."""
     if x < 0:
-        raise ValueError("Function not defined for x<0.")
+        return float('nan')
     return math.sqrt(x)
 
 
 def reciprocal_quadratic(x):
     """Returns 1/(x^2 - 1). Not continuous at x=1 and x=-1."""
     if x in [1, -1]:
-        raise ValueError("Function not defined at x=1 or x=-1.")
+        return float('nan')
     return 1 / (x ** 2 - 1)
 
 
@@ -51,8 +51,8 @@ def cosine(x):
 
 def tangent(x):
     """Returns the tangent of x. Not continuous at odd multiples of pi/2."""
-    if (x % math.pi) == math.pi / 2:
-        raise ValueError("Function not defined at odd multiples of pi/2.")
+    if (x % math.pi) == math.pi / 2 and x != 0:
+        return float('nan')
     return math.tan(x)
 
 
@@ -60,7 +60,7 @@ def secant(x):
     """Returns the secant of x. Not continuous where cos(x) = 0."""
     cos_val = math.cos(x)
     if cos_val == 0:
-        raise ValueError("Function not defined where cos(x) = 0.")
+        return float('nan')
     return 1 / cos_val
 
 
@@ -68,7 +68,7 @@ def cosecant(x):
     """Returns the cosecant of x. Not continuous where sin(x) = 0."""
     sin_val = math.sin(x)
     if sin_val == 0:
-        raise ValueError("Function not defined where sin(x) = 0.")
+        return float('nan')
     return 1 / sin_val
 
 
@@ -76,21 +76,21 @@ def cotangent(x):
     """Returns the cotangent of x. Not continuous where sin(x) = 0."""
     sin_val = math.sin(x)
     if sin_val == 0:
-        raise ValueError("Function not defined where sin(x) = 0.")
+        return float('nan')
     return 1 / math.tan(x)
 
 
 def natural_log(x):
     """Returns the natural logarithm of x (base e). Not continuous for x <= 0."""
     if x <= 0:
-        raise ValueError("Function not defined for x <= 0.")
+        return float('nan')
     return math.log(x)
 
 
 def common_log(x):
     """Returns the logarithm of x with base 10. Not continuous for x <= 0."""
     if x <= 0:
-        raise ValueError("Function not defined for x <= 0.")
+        return float('nan')
     return math.log10(x)
 
 
