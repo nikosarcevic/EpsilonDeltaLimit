@@ -1,7 +1,6 @@
 import streamlit as st
 import functions
 
-
 st.set_page_config(page_title="Epsilon-Delta Limit Checker", layout="centered")
 
 # Sidebar for navigation
@@ -56,12 +55,12 @@ elif selected_page == "Calculations":
     )
 
     # Calculate delta based on the given function, point, limit, and epsilon
-    delta = functions.epsilon_delta_check(functions.FUNCTIONS[selected_function], point_of_interest, limit_value, epsilon)
+    delta = functions.epsilon_delta_check(functions.FUNCTIONS[selected_function], point_of_interest, limit_value,
+                                          epsilon)
     st.write(f"For ε = {epsilon}, δ = {delta:.5f}")
 
     # Plot using the function from functions module
-    fig = functions.plot_epsilon_delta(
-        selected_function,
+    fig = functions.plot_function_with_epsilon_delta(
         functions.FUNCTIONS[selected_function],
         point_of_interest,
         limit_value,
