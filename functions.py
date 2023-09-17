@@ -117,7 +117,10 @@ def epsilon_delta_check(func, a, limit_value, epsilon):
         delta *= 0.5
 
 
-def plot_function_with_epsilon_delta(func, a, limit_value, epsilon, delta):
+def plot_function_with_epsilon_delta(func, a, limit_value, epsilon):
+    # Dynamically determining delta for the given epsilon
+    delta = epsilon_delta_check(func, a, limit_value, epsilon)
+
     x = np.linspace(a - 3 * delta, a + 3 * delta, 400)
     y = [func(val) for val in x]
 
@@ -132,9 +135,9 @@ def plot_function_with_epsilon_delta(func, a, limit_value, epsilon, delta):
     # Highlighting the delta region with pastel blue
     ax.axvspan(a - delta, a + delta, color="#A7C7E7", alpha=0.6)
 
-    ax.set_title(f"Epsilon-Delta plot for {func.__name__}(x)")
-    ax.set_xlabel('x')
-    ax.set_ylabel(f'{func.__name__}(x)')
+    ax.set_title(f"Epsilon-Delta plot for {func.__name__}($x$)", fontsize=20)
+    ax.set_xlabel('$x$', fontsize=15)
+    ax.set_ylabel(f'{func.__name__}($x$)', fontsize=15)
     ax.grid(True)
     ax.axhline(0, color='black', linewidth=0.5)
     ax.axvline(0, color='black', linewidth=0.5)
